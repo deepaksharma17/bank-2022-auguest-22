@@ -1,0 +1,56 @@
+# go to the cloud lab
+click home and systemtools and lxterminal
+sudo su -  === give password as Welcome@123
+execute => apt-get install ssh
+ssh root@Ip given in excel screenshot
+user = ec2-user
+password = redhat@123
+
+execute sudo su -
+
+make sure you are on root.
+yum install docker -y
+systemctl start docker
+systemctl enable docker
+systemctl status docker
+
+go to hub.docker.com, explore httpd,mysql,haprxy,redis images with their tag and read some content.
+
+docker info
+docker version
+docker images
+docker pull quay.io/kushalsamota/centos
+docker images
+docker pull docker.io/mysql
+docker images
+docker pull docker.io/mysql:5.6
+docker images
+#note ---- if docker pull limit error you face move to next command.
+docker pull quay.io/kushalsamota/httpd
+docker inspect quay.io/kushalsamota/httpd ============ see the cmd and all other things
+docker inspect quay.io/kushalsamota/centos ============ see the cmd and all other things
+
+#task -- create a account on docker.io and verify it with email sent to registered email address. Do not forget to verify it.
+docker login docker.io
+#give docker.io username and password and you will see a login succeeded message.
+docker images
+docker tag <image id of centos>  docker.io/<yourdockerusername>/javagpg:v1
+docker push docker.io/<yourdockerusername>/javagpg:v1
+#go to docker.io and confirm whether the image has been uploaded or not.
+
+docker rmi <imageid of centos image>
+docker images
+docker system df
+docker pull quay.io/kushalsamota/httpd
+docker images
+docker save <imageid of httpd image> -o httpd.tar
+docker rmi quay.io/kushalsamota/httpd
+docker images ==== you wont see the image
+ls  === you will see a tar file
+docker load -i httpd.tar
+docker images === you will see a image with no name that is a dangling image
+docker tag <imageid of that image> httpd:latest
+docker images
+
+docker rmi $(docker images -a -q)
+docker images ==== if you still see some images than remove them with their name by using docker rmi <name of image>
