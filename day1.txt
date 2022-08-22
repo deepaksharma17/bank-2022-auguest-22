@@ -2,9 +2,9 @@
 click home and systemtools and lxterminal
 sudo su -  === give password as Welcome@123
 execute => apt-get install ssh
-ssh root@Ip given in excel screenshot
+ssh ec2-user@Ip given in excel screenshot
 user = ec2-user
-password = redhat@123
+password = redhat@8952
 
 execute sudo su -
 
