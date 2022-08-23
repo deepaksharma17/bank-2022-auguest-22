@@ -161,3 +161,19 @@ docker exec -it vodafone bash
 ping <ip of idea container>
 
 It should not ping
+
+task2
+docker rm -f $(docker ps -a -q)
+docker ps  -- there should not be any container present
+How to limit the usage of container on host machine
+
+docker run -d --name apache docker.io/httpd
+docker ps
+docker stats apache
+see the limit over there,, it can use all the memory and cpu of system. you can check by running "free -h" to see memory.
+
+docker rm -f apache
+docker run -d --name apache --cpu 100m --memory 100m docker.io/httpd
+docker stats apache
+see the limit over there, it will be changed
+
