@@ -177,3 +177,8 @@ docker run -d --name apache --cpu 100m --memory 100m docker.io/httpd
 docker stats apache
 see the limit over there, it will be changed
 
+task3  -- to be done by yourself. this you have already done in previous exercise.
+
+download a image named as mysql from dockerhub.
+upload it on your docker account.
+
