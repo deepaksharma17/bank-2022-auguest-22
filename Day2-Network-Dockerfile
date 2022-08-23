@@ -182,3 +182,15 @@ task3  -- to be done by yourself. this you have already done in previous exercis
 download a image named as mysql from dockerhub.
 upload it on your docker account.
 
+task4
+
+create a container named as prodapp from the image nginx from hub.docker.com
+hostport must be 82
+container port should be according to written documentation on hub.docker.com
+name of the container must be nginxcontainer
+cpu limit must be 200m
+memory limit must be 1g
+hostname must be nginx   --- execute "docker run --help" to take help or google it that how to change the hostname
+access the container on 82 port number
+
+
