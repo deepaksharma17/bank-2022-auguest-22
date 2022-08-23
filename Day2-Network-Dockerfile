@@ -141,3 +141,23 @@ curl localhost
 docker rm -f apachecontainer
 docker rmi apache:v1
 ##################################################
+
+
+Separate network exercise
+
+task1)
+
+docker network create idea
+docker network create vodafone
+docker network inspect idea
+docket network inspect vodafone
+
+See the network range. it will be different
+
+docker run -itd --name idea --network idea docker.io/centos
+docker run -itd --name vodafone --network vodafone docker.io/centos
+docker inspect idea | grep -i ip
+docker exec -it vodafone bash
+ping <ip of idea container>
+
+It should not ping
