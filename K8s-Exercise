@@ -37,3 +37,5 @@ check whether scheduler,controller,apiserver,etcd running on master or not.
 
 kubectl create ns <yourname>
 kubectl get ns   === your name should be the namespace name and it should be present over here, if yes, raise yourhand
+
+kubectl api-resource === to see all the apiresources available at that time in kubernetes
