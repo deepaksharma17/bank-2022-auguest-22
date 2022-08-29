@@ -9,6 +9,10 @@ mv index.html config
 ls
 
 execute the following
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+ls
+mv kubectl /bin
+chmod o+x /bin/kubectl
 kubectl get nodes 
 
 if above command is running raise your hands
