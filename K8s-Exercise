@@ -1,4 +1,4 @@
-On windows-open putty and login to the linux machine
+On windows-open putty and login to the linux machine with ec2-user and password as redhat
 make sure you are logged in with root. if not run, sudo su -
 execute the following
 mkdir .kube
@@ -7,3 +7,5 @@ run wget command given on teams chat and check whether the config file is downlo
 
 execute the following
 kubectl get nodes 
+
+if above command is running raise your hands
