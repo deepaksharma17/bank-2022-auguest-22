@@ -61,15 +61,15 @@ spec:
                   
 =====================================
 kubectl create -f pod.yaml -n <username of yours>
-kubectl get pods <username of yours>
-kubectl get pods -o wide <username of yours>
-kubectl get pods --show-labels <username of yours>
-kubectl describe pod apachepod <username of yours>
-kubectl get pod apachepod -o yaml > pod1.yaml <username of yours>
+kubectl get pods -n <username of yours>
+kubectl get pods -o wide -n  <username of yours>
+kubectl get pods --show-labels  -n <username of yours>
+kubectl describe pod apachepod  -n <username of yours>
+kubectl get pod apachepod -o yaml > pod1.yaml -n  <username of yours>
 vim pod1.yaml 
 exit from file
-kubectl delete pod apachepod <username of yours>
-kubectl get pods <username of yours>
+kubectl delete pod apachepod  -n <username of yours>
+kubectl get pods  -n <username of yours>
 
 #########################################################
 vim pod.yaml
@@ -94,16 +94,16 @@ spec:
 ==============================================
 save the file
 
-kubectl create -f pod.yaml <username of yours>
-kubectl get pods <username of yours> === two container will be running in a pod
-kubectl get pods -o wide <username of yours>
-kubectl describe pod apachepod <username of yours>
-kubectl exec -it apachepod -c secondcontainer bash <username of yours>
+kubectl create -f pod.yaml  -n <username of yours>
+kubectl get pods  -n <username of yours> === two container will be running in a pod
+kubectl get pods -o wide -n  <username of yours>
+kubectl describe pod apachepod  -n <username of yours>
+kubectl exec -it apachepod -c secondcontainer bash -n  <username of yours>
 exit
-kubectl logs apachepod -c firstcontainer <username of yours>
-kubectl logs apachepod -c secondcontainer <username of yours>
-kubectl delete pod apachepod <username of yours>
-kubectl get pods <username of yours>
+kubectl logs apachepod -c firstcontainer -n  <username of yours>
+kubectl logs apachepod -c secondcontainer -n  <username of yours>
+kubectl delete pod apachepod  -n <username of yours>
+kubectl get pods -n  <username of yours>
 
 ##################################################
 vim pod.yaml
@@ -127,10 +127,10 @@ spec:
                           - name: myvol
                             mountPath: /usr/lkubectlal/apache2/htdkubectls
 ========================================
-kubectl create -f pod.yaml <username of yours>
-kubectl get pods <username of yours>
-kubectl describe pod apachepod <username of yours>
-kubectl delete pod apachepod <username of yours>
+kubectl create -f pod.yaml  -n <username of yours>
+kubectl get pods  -n <username of yours>
+kubectl describe pod apachepod  -n <username of yours>
+kubectl delete pod apachepod  -n <username of yours>
 
 #########################################
 
