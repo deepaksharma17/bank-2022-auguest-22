@@ -133,4 +133,41 @@ kubectl describe pod apachepod  -n <username of yours>
 kubectl delete pod apachepod  -n <username of yours>
 
 #########################################
+Replication Controller Exercise
+===================================
+vim rc.yaml
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: mysql
+  namespace: <username of yours>
+spec:
+  replicas: 5
+  selector:
+    app: mysql
+  template:
+    metadata:
+      name: mysqlpod
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysqlcontainer
+        image: quay.io/kushalsamota/mysql
+        env:
+                - name: MYSQL_ROOT_PASSWORD
+                  value: redhat
+                  
+save the file
+======================================
+kubectl create -f rc.yaml -n <username of yours>
+kubectl get all -n <username of yours>
+kubectl scale rc/mysql --replicas=10 -n <username of yours>
+kubectl get pods -n <username of yours>
+kubectl scale rc/mysql --replicas=1 -n <username of yours>
+kubectl get pods -n <username of yours>
+kubectl delete rc mysql -n <username of yours>
+kubectl get all -n <username of yours>
+
+###########################################
 
