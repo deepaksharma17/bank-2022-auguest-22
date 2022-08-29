@@ -3,10 +3,7 @@ make sure you are logged in with root. if not run, sudo su -
 execute the following
 mkdir .kube
 cd .kube
-touch config
-vim config
-
-download the config file from team and copy the content of config file to config file which you have created in .kube folder
+run wget command given on teams chat and check whether the config file is downloaded or not by executing "ls" command
 
 execute the following
 kubectl get nodes 
