@@ -16,3 +16,24 @@ chmod o+x /bin/kubectl
 kubectl get nodes 
 
 if above command is running raise your hands
+
+
+=========================================
+Exercise of basic command
+kubectl get nodes
+kubectl get ns
+kubectl get nodes -o wide
+kubectl get nodes --show-labels
+kubectl describe node <nodename>
+### you can get the nodename from kubectl get nodes command and do not write the greater than and less than signs.
+kubectl get node <nodename> -o yaml
+kubectl get node <nodename> -o yaml > node.yaml
+vim node.yaml
+see the files try to understand it and close it than
+
+kubectl get ns
+kubectl get all -n kube-system -o wide
+check whether scheduler,controller,apiserver,etcd running on master or not.
+
+kubectl create ns <yourname>
+kubectl get ns   === your name should be the namespace name and it should be present over here, if yes, raise yourhand
