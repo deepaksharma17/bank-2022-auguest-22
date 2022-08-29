@@ -4,6 +4,9 @@ execute the following
 mkdir .kube
 cd .kube
 run wget command given on teams chat and check whether the config file is downloaded or not by executing "ls" command
+ls
+mv index.html config
+ls
 
 execute the following
 kubectl get nodes 
