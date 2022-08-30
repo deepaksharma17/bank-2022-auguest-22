@@ -141,3 +141,26 @@ spec:
  oc delete deployment mysql-deployment
  oc delete configmap mysqlpassword
  ====================================================
+ 
+ Task --- 
+ 1) create a deployment with following information in your project
+      name of deployment - mysqldep
+      password of ROOT - redhat@123
+      replicas - 5
+      podname - mysqlpod
+      label on pod = app: mysql
+      maxsurge = 50%
+      maxunavailable = 50%
+      image = docker.io/mysql
+Once the pod is created - execute following
+oc get pods
+oc exec -it <any podname> bash
+mysql -u root -p
+press enter and type password and press enter
+show databases;
+select user,host from mysql.user;
+exit   --- from the mysql shell
+exit   --- from the container
+
+delete deployment and check whether everything is deleted or not.
+===========================================================
