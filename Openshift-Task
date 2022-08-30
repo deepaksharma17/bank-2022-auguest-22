@@ -1,0 +1,40 @@
+vim dep.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysqldep
+  namespace: user2
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysqlpod
+        image: docker.io/mysql
+        env:
+                - name: MYSQL_ROOT_PASSWORD
+                  valueFrom:
+                          configMapKeyRef:
+                                  name: mysqlpassword
+                                  key: passwordofmysql
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxSurge: 50%
+        maxUnavailable: 50%
+        
+ oc create configmap mysqlpassword --from-literal=passwordofmysql=redhat
+ oc get configmap
+ oc describe configmap mysqlpassword
+ oc create -f dep.yaml
+ oc describe deployment mysqldep
+ oc get pods/all
+ oc delete deployment mysqldep
+ oc delete configmap mysqlpassword
