@@ -1,0 +1,70 @@
+make sure you are not logged in with admin. login with your user like user1 user2 and so on.
+
+Task1-
+Create an image with dockerfile in which httpd must be installed and the index.html should contain "hey" string initially.
+Create an deployment and use that image. replica must be 3 and in all 3 replicas in index.html, hey, hey1 and hey2 must be written. try to go to each pod and change it. vim and vi command wont work there. use echo to redirect.
+label on the pod must be app: web
+create a service with file. copy that from google by searching service kubernetes
+create a route with file. copy that from google. by searching route openshift and go to route configuration.
+in route hostname must be <yourname>.apps.testlab.mayankmodi.xyz
+curl on it and raise your hands
+
+
+
+Dockerfile:
+
+FROM quay.io/kushalsamota/centos:centos7
+RUN  yum install httpd -y
+RUN echo "<h1> Hey </h1>" > /var/www/html/index.html
+CMD  ["/usr/sbin/httpd","-D","FOREGROUND"]
+
+
+Deployment:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd
+  namespace: user2
+  app: web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: httpd
+        image: user2_httpd:v1
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: service
+  namespace: user2
+  app: web
+spec:
+  type: NodePort
+  selector:
+    app: web
+  ports:
+    - port: 80
+      targetPort: 80
+---
+
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: route
+spec:
+  host: user2.apps.testlab.mayankmodi.xyz
+  port:
+    targetPort: 80
+  to:
+    kind: Service
+    name: route
