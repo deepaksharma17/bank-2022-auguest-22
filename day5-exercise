@@ -1,0 +1,8 @@
+Task1-
+Create an image with dockerfile in which httpd must be installed and the index.html should contain "hey" string initially.
+Create an deployment and use that image. replica must be 3 and in all 3 replicas in index.html, hey, hey1 and hey2 must be written. try to go to each pod and change it. vim and vi command wont work there. use echo to redirect.
+label on the pod must be app: web
+create a service with file. copy that from google by searching service kubernetes
+create a route with file. copy that from google. by searching route openshift and go to route configuration.
+in route hostname must be <yourname>.apps.testlab.mayankmodi.xyz
+curl on it and raise your hands
